@@ -4,9 +4,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Abhiranjan Upadhyay — Senior ServiceNow Technical Consultant</title>
-  <meta name="description" content="Abhiranjan Upadhyay is a Senior ServiceNow Technical Consultant in Bangalore with 11 years across ITSM, CSM, HRSD, ITOM, integrations and Performance Analytics.">
+  <meta name="description" content="Abhiranjan Upadhyay is a Senior ServiceNow Technical Consultant in Bangalore with over a decade of experience across ITSM, CSM, HRSD, ITOM, integrations and Performance Analytics.">
   <meta property="og:title" content="Abhiranjan Upadhyay — Senior ServiceNow Technical Consultant">
-  <meta property="og:description" content="11 years building ServiceNow solutions for global enterprises.">
+  <meta property="og:description" content="Over a decade building ServiceNow solutions for global enterprises.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://abhiranjanupadhyay.com/">
   <meta property="og:image" content="https://abhiranjanupadhyay.com/photo.jpg">
@@ -38,7 +38,7 @@
         <p class="eyebrow">Bangalore, India</p>
         <h1>Abhiranjan <span class="grad-text">Upadhyay</span></h1>
         <p class="role">Senior ServiceNow Technical Consultant</p>
-        <p class="lead">11 years implementing and extending ServiceNow for global enterprises — from ITSM and HRSD to integrations, Discovery and Performance Analytics.</p>
+        <p class="lead"><span data-years>11</span> years implementing and extending ServiceNow for global enterprises — from ITSM and HRSD to integrations, Discovery and Performance Analytics.</p>
         <p class="cta">
           <a class="btn" href="#experience">View my journey</a>
           <a class="btn" href="resume.pdf" download>Resume (PDF)</a>
@@ -46,7 +46,7 @@
           <a class="btn ghost" href="https://www.linkedin.com/in/abhiranjan-upadhyay-a74326197/" target="_blank" rel="noopener">LinkedIn</a>
         </p>
         <ul class="hero-stats">
-          <li><strong>11</strong><span>years</span></li>
+          <li><strong data-years>11</strong><span>years</span></li>
           <li><strong>7</strong><span>organisations</span></li>
           <li><strong>9+</strong><span>integrations</span></li>
         </ul>
@@ -62,7 +62,7 @@
       <p>I'm a results-driven ServiceNow consultant with hands-on experience across ITSM, CSM, HRSD, SecOps and Performance Analytics. I've delivered end-to-end integrations, custom applications and platform enhancements for enterprises across telecom, finance, packaging and professional services.</p>
       <p>I'm currently a Senior Software Engineer at ServiceNow, and from December 2026 I'll be joining British Telecom (BT) as CSM Lead.</p>
       <ul class="facts">
-        <li><strong data-count="11">11</strong><span>years of experience</span></li>
+        <li><strong data-years data-count="11">11</strong><span>years of experience</span></li>
         <li><strong data-count="7">7</strong><span>organisations</span></li>
         <li><strong data-count="9" data-suffix="+">9+</strong><span>integration types delivered</span></li>
       </ul>
@@ -255,6 +255,16 @@
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Years of experience, counted in full years from the start of career (Oct 2015)
+    const careerStart = new Date(2015, 9, 1);
+    const now = new Date();
+    let years = now.getFullYear() - careerStart.getFullYear();
+    if (now < new Date(careerStart.getFullYear() + years, careerStart.getMonth(), careerStart.getDate())) years--;
+    document.querySelectorAll('[data-years]').forEach(el => {
+      el.textContent = years;
+      if (el.dataset.count) el.dataset.count = years;
+    });
     const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     // Gallery: duplicate the slides so the slide-right loop is seamless (copies hidden from assistive tech)
