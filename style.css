@@ -39,7 +39,9 @@ main, .top, footer { max-width: 920px; margin: 0 auto; padding: 0 1.25rem; }
 .top nav a { margin-left: 1.1rem; text-decoration: none; color: var(--muted); font-size: .95rem; }
 .top nav a:hover { color: var(--accent); }
 
-.hero { padding: 5rem 0 3rem; }
+.hero { padding: 4rem 0 3rem; display: flex; align-items: center; justify-content: space-between; gap: 2.5rem; border-top: 0; }
+.hero-text { flex: 1 1 auto; }
+.portrait { width: 280px; height: 280px; object-fit: cover; border-radius: 50%; border: 4px solid var(--accent); flex: 0 0 auto; }
 .eyebrow { color: var(--accent); font-weight: 600; text-transform: uppercase; letter-spacing: .1em; font-size: .8rem; margin: 0; }
 h1 { font-size: clamp(2.4rem, 7vw, 3.8rem); line-height: 1.1; margin: .3rem 0; }
 .role { font-size: 1.3rem; color: var(--muted); margin: 0 0 1rem; }
@@ -86,5 +88,6 @@ footer { padding-top: 2rem; padding-bottom: 3rem; color: var(--muted); font-size
 
 @media (max-width: 640px) {
   .top nav a { margin-left: .7rem; font-size: .85rem; }
-  .hero { padding-top: 3rem; }
+  .hero { padding-top: 2rem; flex-direction: column-reverse; align-items: flex-start; gap: 1.5rem; }
+  .portrait { width: 160px; height: 160px; }
 }
